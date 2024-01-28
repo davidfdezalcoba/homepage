@@ -33,6 +33,8 @@ function SingleSessionEntry({ playCommand, session }) {
     PlayState: { PositionTicks, IsPaused, IsMuted },
   } = session;
 
+  const User = session.UserName;
+
   const RunTimeTicks =
     session.NowPlayingItem?.RunTimeTicks ?? session.NowPlayingItem?.CurrentProgram?.RunTimeTicks ?? 0;
 
@@ -49,6 +51,7 @@ function SingleSessionEntry({ playCommand, session }) {
           <div className="absolute w-full whitespace-nowrap text-ellipsis overflow-hidden">
             {Name}
             {SeriesName && ` - ${SeriesName}`}
+            {` - ${User}`}
           </div>
         </div>
         <div className="self-center text-xs flex justify-end mr-1.5 pl-1">
@@ -103,6 +106,8 @@ function SessionEntry({ playCommand, session }) {
     PlayState: { PositionTicks, IsPaused, IsMuted },
   } = session;
 
+  const User = session.UserName;
+
   const RunTimeTicks =
     session.NowPlayingItem?.RunTimeTicks ?? session.NowPlayingItem?.CurrentProgram?.RunTimeTicks ?? 0;
 
@@ -142,6 +147,7 @@ function SessionEntry({ playCommand, session }) {
         <div className="absolute w-full whitespace-nowrap text-ellipsis overflow-hidden">
           {Name}
           {SeriesName && ` - ${SeriesName}`}
+          {` - ${User}`}
         </div>
       </div>
       <div className="self-center text-xs flex justify-end mr-1 z-10">{IsMuted && <BsVolumeMuteFill />}</div>
